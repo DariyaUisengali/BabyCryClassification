@@ -45,7 +45,7 @@ class _AskAIPageState extends State<AskAIPage> {
                     child: Text(
                       message['content'] ?? '',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -69,6 +69,7 @@ class _AskAIPageState extends State<AskAIPage> {
                       onFieldSubmitted: (_) {
                         _sendMessage();
                       },
+                      style: TextStyle(color: Colors.white), // Add this line to set text color
                       decoration: InputDecoration(
                         hintText: 'Type your message...',
                         hintStyle: TextStyle(color: Colors.white),

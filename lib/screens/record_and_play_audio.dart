@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -103,7 +102,7 @@ class _RecordAndPlayScreenState extends State<RecordAndPlayScreen> {
             style: TextStyle(fontSize: 24, color: Colors.white),
           ),
           SizedBox(height: 20),
-          Image.asset('lib/icon.jpeg', width: 50, height: 50),
+          Image.asset('lib/icon.png', width: 130, height: 130),
         ],
       ),
     );
