@@ -7,8 +7,8 @@ import 'package:record_with_play/providers/play_audio_provider.dart';
 import 'package:record_with_play/providers/record_audio_provider.dart';
 import 'package:simple_ripple_animation/simple_ripple_animation.dart';
 import 'ask_ai.dart'; // Import the AskAIPage widget
-import 'package:record_with_play/screens/bottom_menu.dart';
-import 'account_page.dart';
+import 'package:record_with_play/bottom_menu.dart';
+
 import 'display_prediction.dart';
 
 
@@ -545,3 +545,7 @@ class _ChatMessageButtonState extends State<ChatMessageButton>
     );
   }
 }
+
+
+
+

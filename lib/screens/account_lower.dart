@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bottom_menu.dart'; // Importing the BottomMenu widget
+import '../bottom_menu.dart'; // Importing the BottomMenu widget
 
 class AccountLower extends StatelessWidget {
   @override

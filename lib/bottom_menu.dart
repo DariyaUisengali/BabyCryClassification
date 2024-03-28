@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:record_with_play/screens/record_and_play_audio.dart';
-import 'package:record_with_play/ask_ai.dart';
-
+import 'package:record_with_play/screens/sleep_sounds_screen.dart';
+import 'package:record_with_play/screens/moms_blog_page.dart';
+import 'package:record_with_play/screens/my_account.dart';
+import 'providers/record_audio_provider.dart';
+import 'package:provider/provider.dart';
 class BottomMenu extends StatelessWidget {
   final String activePage;
 
@@ -9,46 +12,135 @@ class BottomMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _recordProvider = Provider.of<RecordAudioProvider>(context, listen: false);
     Color getColor(String page) {
       return activePage == page ? Color(0xFF98FB98) : Colors.white;
     }
 
-    return BottomAppBar(
-      color: Colors.transparent, // Make the bottom app bar transparent
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RecordAndPlayScreen()),
-              );
-            },
-            icon: Icon(
-              Icons.nightlight_round,
-              color: getColor('crying'),
-            ),
+          Container(
+            height: 1.0,
+            color: Colors.white, // White line color
           ),
-          IconButton(
-            onPressed: () {
-              // Handle button tap
-            },
-            icon: Icon(
-              Icons.music_note,
-              color: getColor('sounds'),
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AskAIPage()),
-              );
-            },
-            icon: Icon(
-              Icons.question_answer,
-              color: getColor('ask_ai'),
+          Container(
+            color: Color(0xFF32343E),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      IconButton(
+                        iconSize: 20, // Reduce icon size
+                        onPressed: () {
+                          _recordProvider.clearOldData();
+                        },
+                        icon: Icon(
+                          Icons.nightlight_round,
+                          color: getColor('crying'),
+                        ),
+                      ),
+                      Text(
+                        'Cry Analyzer',
+                        style: TextStyle(
+                          color: getColor('crying'),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10, // Reduce text size
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      IconButton(
+                        iconSize: 20, // Reduce icon size
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SleepSoundsScreen()),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.music_note,
+                          color: getColor('sounds'),
+                        ),
+                      ),
+                      Text(
+                        'Sleep Sounds',
+                        style: TextStyle(
+                          color: getColor('sounds'),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10, // Reduce text size
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      IconButton(
+                        iconSize: 20, // Reduce icon size
+                        onPressed: () {
+                          if (activePage != 'moms_blog') {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => MomsBlogPage()),
+                            );
+                          }
+                        },
+                        icon: Icon(
+                          Icons.article_outlined,
+                          color: getColor('moms_blog'),
+                        ),
+                      ),
+                      Text(
+                        "Baby's Blog",
+                        style: TextStyle(
+                          color: getColor('moms_blog'),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10, // Reduce text size
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      IconButton(
+                        iconSize: 20, // Reduce icon size
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SplitScreen()),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.account_circle,
+                          color: getColor('account'),
+                        ),
+                      ),
+                      Text(
+                        'Account',
+                        style: TextStyle(
+                          color: getColor('account'),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10, // Reduce text size
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],

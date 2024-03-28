@@ -34,6 +34,7 @@ class RecordAudioProvider extends ChangeNotifier{
 
   clearOldData(){
     _afterRecordingFilePath = '';
+    _predictionResult = null;
     notifyListeners();
   }
 

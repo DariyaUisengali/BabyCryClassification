@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:record_with_play/screens/record_and_play_audio.dart';
+import 'package:record_with_play/screens/sign_in_page.dart';
+import 'sign_up_page.dart'; // Import the SignUpPage
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -7,29 +9,29 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF32343E),
       body: Center(
-        child: SingleChildScrollView( // Makes the content scrollable
+        child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Centers the column vertically
-            crossAxisAlignment: CrossAxisAlignment.center, // Centers the column's children horizontally
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
                 'lib/assets/welcome_screen/Welcometo.png',
-                width: 170.05, // Adjust width as per your design
-                height: 31.95, // Adjust height as per your design
+                width: 170.05,
+                height: 31.95,
               ),
               SizedBox(height: 20),
               Image.asset(
                 'lib/assets/welcome_screen/BabysWorld.png',
-                width: 181, // Adjust width as per your design
-                height: 42, // Adjust height as per your design
+                width: 181,
+                height: 42,
               ),
-              SizedBox(height: 40), // Spacing before the icon
+              SizedBox(height: 40),
               Image.asset(
                 'lib/icon.png',
                 width: 100,
                 height: 100,
               ),
-              SizedBox(height: 20), // Spacing before the buttons
+              SizedBox(height: 20),
               SizedBox(
                 width: 301,
                 height: 52,
@@ -37,17 +39,17 @@ class WelcomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => RecordAndPlayScreen()),
+                      MaterialPageRoute(builder: (context) => SignInPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF98FB98), // Use primary for button color
+                    backgroundColor: Color(0xFF98FB98),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
                   child: Text(
-                    'Sign in',
+                    'Sign In',
                     style: TextStyle(
                       color: Color(0xFF32343E),
                       fontSize: 20,
@@ -59,6 +61,32 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(
                 width: 301,
                 height: 52,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpPage()), // Navigate to SignUpPage
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFFFFFFF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: Color(0xFF32343E),
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 30),
+              SizedBox(
+                width: 200,
+                height: 40,
                 child: TextButton(
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -73,29 +101,10 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    'Sign up',
+                    'Skip for now',
                     style: TextStyle(
                       color: Color(0xFF32343E),
                       fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 30), // Spacing after the buttons
-              SizedBox(
-                width: 103.38,
-                height: 19.27,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => RecordAndPlayScreen()),
-                    );
-                  },
-                  child: Text(
-                    'Skip for now',
-                    style: TextStyle(
-                      color: Colors.white,
                     ),
                   ),
                 ),

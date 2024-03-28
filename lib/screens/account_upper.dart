@@ -1,9 +1,20 @@
+import 'dart:core';
+
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 
 import 'package:flutter/material.dart';
 
-class AccountUpper extends StatelessWidget {
+class AccountUpper extends StatefulWidget {
+  @override
+  State<AccountUpper> createState() => _AccountUpperState();
+}
+
+class _AccountUpperState extends State<AccountUpper> {
+  FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +47,7 @@ class AccountUpper extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                'Dimash Sagatbekov',
+                _auth.currentUser!.displayName .toString(),
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

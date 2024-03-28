@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:record_with_play/screens/bottom_menu.dart';
+import 'package:record_with_play/bottom_menu.dart';
 import 'package:record_with_play/providers/audio_player_controls.dart';
 import 'package:just_audio/just_audio.dart';
 

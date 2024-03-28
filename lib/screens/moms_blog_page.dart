@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:record_with_play/screens/bottom_menu.dart';
+import 'package:record_with_play/bottom_menu.dart';
 
 class ArticleDetailsPage extends StatelessWidget {
   final String title;

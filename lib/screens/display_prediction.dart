@@ -24,7 +24,7 @@ import 'package:flutter/material.dart';
 import 'package:record_with_play/screens/record_and_play_audio.dart';
 import 'package:record_with_play/screens/moms_blog_page.dart'; // Update this import
 import 'package:record_with_play/screens/sleep_sounds_screen.dart'; // Import the SleepSoundsScreen
-import 'package:record_with_play/screens/bottom_menu.dart'; // Import the BottomMenu widget
+import 'package:record_with_play/bottom_menu.dart'; // Import the BottomMenu widget
 
 class PredictionPage extends StatelessWidget {
   final String? predictionLabel;
