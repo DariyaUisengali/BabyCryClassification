@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "672539338524",
+    "project_id": "baby-s-world-fc6e9",
+    "storage_bucket": "baby-s-world-fc6e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672539338524:android:f98bf64a8f5e44641bfcd9",
+        "android_client_info": {
+          "package_name": "com.example.record_with_play"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672539338524-l0mj4gksljms9p1eueiaid3vv0vaoo29.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.record_with_play",
+            "certificate_hash": "ef045f5b107490b303b6a56803e9babd74d75be6"
+          }
+        },
+        {
+          "client_id": "672539338524-shcel5ccn8ftukon6rj8sdgos6oo6981.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9tR2JLYXzRHOpBIjUAIbAIjTr5fmXmxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672539338524-shcel5ccn8ftukon6rj8sdgos6oo6981.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "672539338524-ap9d60jhosag7g7jft9npenrqai8uaet.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.recordWithPlay"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>672539338524-ap9d60jhosag7g7jft9npenrqai8uaet.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.672539338524-ap9d60jhosag7g7jft9npenrqai8uaet</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>672539338524-l0mj4gksljms9p1eueiaid3vv0vaoo29.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC1WKM5Nv7CQhi35q8_mfs06SQHM_Hmiho</string>
+	<key>GCM_SENDER_ID</key>
+	<string>672539338524</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.recordWithPlay</string>
+	<key>PROJECT_ID</key>
+	<string>baby-s-world-fc6e9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>baby-s-world-fc6e9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:672539338524:ios:eea12b8de19f86791bfcd9</string>
+</dict>
+</plist>
