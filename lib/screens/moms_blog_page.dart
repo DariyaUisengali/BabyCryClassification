@@ -14,7 +14,9 @@ class ArticleDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        backgroundColor: Color(0xFF494E64),
       ),
+      backgroundColor: Color(0xFF32343E),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -29,13 +31,19 @@ class ArticleDetailsPage extends StatelessWidget {
             SizedBox(height: 16),
             Text(
               title,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontStyle: FontStyle.italic),
             ),
             SizedBox(height: 8),
-            Text(
-              content,
-              style: TextStyle(fontSize: 16),
-            ),
+            Text(content,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300,
+                )),
           ],
         ),
       ),
@@ -43,13 +51,19 @@ class ArticleDetailsPage extends StatelessWidget {
   }
 }
 
-class MomsBlogPage extends StatelessWidget {
+class MomsBlogPage extends StatefulWidget {
+  @override
+  _MomsBlogPageState createState() => _MomsBlogPageState();
+}
+
+class _MomsBlogPageState extends State<MomsBlogPage> {
   final List<Map<String, dynamic>> newsArticles = [
     {
-      'title': 'Release of Baby Classificaiton App: version demo is released',
+      'title':
+          'The Science and Mystery Behind a Baby\'s Cry: Understanding the Language of Infant Communication',
       'content':
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-      'imageUrl': 'lib/sleep_sounds_page_items/sleep_images/dreamland.jpg',
+      'imageUrl': 'lib/assets/baby_blog_items/baby_looking.jpg',
     },
     {
       'title': 'Release of Baby Classificaiton App: version demo is released',
@@ -64,6 +78,10 @@ class MomsBlogPage extends StatelessWidget {
       'imageUrl': 'lib/sleep_sounds_page_items/sleep_images/evening.jpg',
     },
   ];
+
+  // List to store the liked state of each article
+  List<bool> isLiked = List.generate(3, (index) => false);
+  List<bool> disLiked = List.generate(3, (index_d) => false);
 
   @override
   Widget build(BuildContext context) {
@@ -86,8 +104,6 @@ class MomsBlogPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: newsArticles.length,
         itemBuilder: (BuildContext context, int index) {
-          bool isLiked = false;
-
           return InkWell(
             onTap: () {
               Navigator.push(
@@ -128,10 +144,11 @@ class MomsBlogPage extends StatelessWidget {
                     Text(
                       newsArticles[index]['content'].substring(0, 500) + '...',
                       style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Roboto',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w100),
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w100,
+                      ),
                     ),
                     SizedBox(height: 8),
                     Row(
@@ -141,21 +158,27 @@ class MomsBlogPage extends StatelessWidget {
                           icon: Icon(Icons.thumb_up),
                           onPressed: () {
                             // Handle like button pressed
-                            isLiked = !isLiked;
-                            print('Liked ${newsArticles[index]['title']}');
-                            print(isLiked);
+                            setState(() {
+                              isLiked[index] = !isLiked[index];
+                              if (isLiked[index]) {
+                                disLiked[index] = false;
+                              }
+                            });
                           },
-                          color: isLiked
-                              ? Colors.blue
-                              : Color.fromARGB(255, 255, 255, 255),
+                          color: isLiked[index] ? Colors.blue : Colors.white,
                         ),
                         IconButton(
                           icon: Icon(Icons.thumb_down),
-                          color: Colors.white,
                           onPressed: () {
                             // Handle dislike button pressed
-                            print('Disliked ${newsArticles[index]['title']}');
+                            setState(() {
+                              disLiked[index] = !disLiked[index];
+                              if (disLiked[index]) {
+                                isLiked[index] = false;
+                              }
+                            });
                           },
+                          color: disLiked[index] ? Colors.blue : Colors.white,
                         ),
                       ],
                     ),
@@ -165,58 +188,6 @@ class MomsBlogPage extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: MomsBlogPage(),
-  ));
-}
-
-class FullArticlePage extends StatelessWidget {
-  final String title;
-  final String content;
-  final String imageUrl;
-
-  FullArticlePage({
-    required this.title,
-    required this.content,
-    required this.imageUrl,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF32343E),
-      appBar: AppBar(
-        title: Text(
-          title,
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              content,
-              style: TextStyle(
-                fontSize: 16.0,
-                fontFamily: 'Roboto',
-              ),
-            ),
-            SizedBox(height: 16.0),
-            Image.asset(imageUrl),
-          ],
-        ),
       ),
     );
   }
